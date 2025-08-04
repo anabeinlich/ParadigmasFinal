@@ -42,4 +42,11 @@ public class GameController : MonoBehaviour
     {
         player.OnHealthChanged -= RevisarDerrota;
     }
+
+    public void VolverMenu() 
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+
+    }
 }

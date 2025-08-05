@@ -3,7 +3,7 @@ using UnityEngine;
 using static UnityEngine.Rendering.GPUSort;
 using System.Collections;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : DamageableEntity, IDamageable
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private int maxHealth = 100;
@@ -24,11 +24,6 @@ public class Player : MonoBehaviour, IDamageable
 
     private IInteractable objetoCercano;
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Color damageColor = Color.red;
-    [SerializeField] private float flashDuration = 0.2f;
-
-    private Coroutine flashCoroutine;
 
     private void Awake()
     {
@@ -72,20 +67,10 @@ public class Player : MonoBehaviour, IDamageable
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        flashCoroutine = StartCoroutine(FlashDamage());
+        FlashOnDamage();
         OnHealthChanged?.Invoke(currentHealth);
     }
 
-    // para el efecto de daño
-    private IEnumerator FlashDamage()
-    {
-        Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = damageColor;
-
-        yield return new WaitForSeconds(flashDuration);
-
-        spriteRenderer.color = originalColor;
-    }
 
     public void Heal(int amount)
     {

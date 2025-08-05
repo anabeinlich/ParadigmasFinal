@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 6134867628533066625}
   - component: {fileID: 1388991435424251833}
   - component: {fileID: -5258760860960776077}
+  - component: {fileID: 7397007200906235292}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -305,12 +306,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d92ed3a80e48b409edf1d4fe8f35b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  maxHealth: 100
-  aura: 0
   spriteRenderer: {fileID: 8861230552940676612}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.2
+  moveSpeed: 5
+  maxHealth: 100
+  aura: 0
 --- !u!50 &6134867628533066625
 Rigidbody2D:
   serializedVersion: 5
@@ -389,3 +390,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proyectilPrefab: {fileID: 9016255308088798505, guid: e8f1b5d62db9f404a9588f9deeae069e, type: 3}
   bulletSpawnPoint: {fileID: 4342901159606319526}
+--- !u!114 &7397007200906235292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798489078660528451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f712eda457c02944390d4695c0d51f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchRadius: 5
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  flashDuration: 1
